@@ -1,6 +1,6 @@
 <p align="center"><img src="./icon.svg" width="88" height="88" alt="左侧轮次导航图标"></p>
 
-# DSH 左侧轮次导航
+# DSH 左侧轮次导航插件
 
 ![MIT](https://img.shields.io/badge/license-MIT-green) ![DSH target](https://img.shields.io/badge/DSH_target-0.2.1--rc.5-blue)
 
@@ -58,6 +58,14 @@ npm pack --dry-run --ignore-scripts --json
 ```
 
 `npm run check` 执行 JavaScript 语法检查与 `scripts/verify.mjs`。校验使用 Node 内置模块检查清单、显式 `exports` / `files`、中英文 meta、SVG 与资源边界，并阻止混入 backup 和实验补丁。打包 dry-run 用于人工核对实际发布文件。离线通过不代表浏览器效果已验证。
+
+## 兼容性复查与反馈
+
+对照 DSH rc.5 与相关插件源码，未发现与 Wallpaper Engine Glass（只改变原生预览的背景与模糊）、对话便签、sidebar-qa 争夺定位属性的规则；主题变量仍继承宿主。此有限静态复查不等于插件联合浏览器测试。
+
+本插件主动在容器宽度大于 480px 时显示导航，包括宿主原本隐藏的 480–900px 区间。窄会话、打开侧栏时的可用空间需实测；另一插件若也改同一个原生导航，规则可能互相覆盖。
+
+GitHub Release 不是 Git 安装前提，目前待真实浏览器验证后再创建稳定 Release。`#main` 会随提交变化；需固定版本可改为 GitHub 提交页的完整 SHA。反馈请在 Issues 附版本、浏览器、启用的界面插件和最短复现步骤，不要附令牌或私人对话。
 
 ## 发布内容
 

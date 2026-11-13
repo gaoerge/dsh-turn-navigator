@@ -59,6 +59,14 @@ npm pack --dry-run --ignore-scripts --json
 
 `npm run check` runs JavaScript syntax checks and `scripts/verify.mjs`. The verifier uses only Node built-ins to check the manifest, explicit `exports` / `files`, bilingual metadata, SVG and resource boundaries, and rejects backups or experimental patches. Review the dry-run's actual package file list. Offline checks do not establish visual correctness.
 
+## Compatibility review and feedback
+
+A source comparison against DSH rc.5 found no conflicting positioning rules with Wallpaper Engine Glass (which styles the native preview background and blur), Pin Notes, or sidebar-qa. Theme tokens remain inherited. This limited static review is not a joint browser test.
+
+The plugin deliberately shows native navigation in containers wider than 480px, including the 480–900px range hidden by the host. Test narrow conversations and opened sidebars before relying on this layout. Another plugin targeting the same native navigator can override these rules.
+
+A GitHub Release is not required to install from Git. Stable Releases are deferred until real browser validation. `#main` follows commits; use a full GitHub commit SHA instead for a fixed revision. Report issues with versions, browser, enabled UI plugins and minimal reproduction steps, without tokens or private conversations.
+
 ## Package contents
 
 Runtime files are `index.js`, `client.js` and `cordis.patch.yml`, accompanied by the manifest, original SVG icon, bilingual metadata, documentation and verifier. Official-module backups, `viewport-rendering.js`, `apply-viewport-patch.cjs` and message-body virtualization patches are excluded.
