@@ -1,0 +1,37 @@
+{
+  "name": "@local/dsh-turn-navigator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reposition DSH's existing native conversation turn navigation to the left using CSS.",
+  "author": "gaoerge",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/gaoerge/dsh-turn-navigator.git" },
+  "homepage": "https://github.com/gaoerge/dsh-turn-navigator#readme",
+  "bugs": { "url": "https://github.com/gaoerge/dsh-turn-navigator/issues" },
+  "icon": "./icon.svg",
+  "engines": { "dsh": "0.2.1-rc.5" },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js", "client.js", "cordis.patch.yml", "icon.svg",
+    "locale/en.json", "locale/zh.json", "README.md", "README.en.md",
+    "LICENSE", "CHANGELOG.md", "scripts/verify.mjs"
+  ],
+  "scripts": {
+    "verify": "node scripts/verify.mjs",
+    "check": "node --check index.js && node --check client.js && node --check scripts/verify.mjs && node scripts/verify.mjs"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-chat"]
+    }
+  }
+}

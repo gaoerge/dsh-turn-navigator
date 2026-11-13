@@ -1,0 +1,15 @@
+node_modules/
+*.tgz
+*.log
+.DS_Store
+Thumbs.db
+coverage/
+backup/
+viewport-rendering.js
+apply-viewport-patch.cjs
+任务进度.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key
